@@ -1,17 +1,18 @@
-function slugify(title) {
-
-  const loweredCase = title.trim().toLowerCase();
-  const slug = loweredCase.replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
-  return slug;
+function isEnoughCapacity(products, containerSize) {
+  let productsQuant = 0;
+  for (let value in products) {
+    productsQuantList = (Object.values(products));
+  }
+  for (let quantity of productsQuantList) {
+    productsQuant = productsQuant + quantity
+  };
+  return (productsQuant) <= containerSize;
 }
 
-const title = 'Arrays for begginers';
-const title2 = "English for developer";
-const title3 = "Ten secrets of JavaScript";
-const title4 = "How to become a JUNIOR developer in TWO WEEKS";
 
-slugify(title)
-console.log(slugify(title)); // "arrays-for-begginers"
-console.log(slugify(title2)); // "english-for-developer"
-console.log(slugify(title3)); // "ten-secrets-of-javascript"
-console.log(slugify(title4)); // "how-to-become-a-junior-developer-in-two-weeks"
+
+
+console.log(isEnoughCapacity({ apples: 2, grapes: 3, carrots: 1 }, 8)); // true
+console.log(isEnoughCapacity({ apples: 4, grapes: 6, lime: 16 }, 12)); // false 
+console.log(isEnoughCapacity({ apples: 1, lime: 5, tomatoes: 3 }, 14)); // true
+console.log(isEnoughCapacity({ apples: 18, potatoes: 5, oranges: 2 }, 7)); // false
