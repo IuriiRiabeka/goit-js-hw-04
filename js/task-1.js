@@ -1,10 +1,13 @@
 function isEnoughCapacity(products, containerSize) {
   let productsQuant = 0;
+  let productsQuantList = [];
   for (let value in products) {
     productsQuantList = (Object.values(products));
-  }
+
+  };
   for (let quantity of productsQuantList) {
-    productsQuant = productsQuant + quantity
+    productsQuant = productsQuant + quantity;
+
   };
   return (productsQuant) <= containerSize;
 }
